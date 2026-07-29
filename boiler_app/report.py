@@ -107,7 +107,6 @@ def _render_boiler_card(boiler: BoilerInfo, console: Console) -> None:
     table.add_column("Value", style="white")
 
     table.add_row("🌡️  Temperatura", _temp_str(boiler.current_temperature, boiler.temp_unit))
-    table.add_row("💧 Umidade", boiler.current_humidity or "[dim]N/A[/dim]")
 
     if boiler.temp_range_min is not None and boiler.temp_range_max is not None:
         table.add_row(
@@ -123,9 +122,6 @@ def _render_boiler_card(boiler: BoilerInfo, console: Console) -> None:
         else "[dim]N/A[/dim]",
     )
     table.add_row("🔧 Sensor", boiler.sensor_type or "[dim]N/A[/dim]")
-    table.add_row("📟 Firmware", boiler.firmware_version or "[dim]N/A[/dim]")
-    table.add_row("🆔 Device ID", f"[dim]{boiler.device_id}[/dim]")
-    table.add_row("📦 Modelo", f"[dim]{boiler.model}[/dim]")
 
     if boiler.temp_correction:
         table.add_row("🔧 Corr. Temp.", f"{boiler.temp_correction:+d}°C")
