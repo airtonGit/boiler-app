@@ -1,0 +1,3 @@
+ewelink>=0.2
+rich>=13
+python-dotenv>=1
